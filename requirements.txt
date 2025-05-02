@@ -1,0 +1,11 @@
+watchdog
+pyyaml
+sentence-transformers
+scikit-learn
+langchain-core
+langchain-community
+langchain-openai
+openai
+python-dotenv
+duckduckgo-search
+tqdm

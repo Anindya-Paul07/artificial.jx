@@ -1,0 +1,3 @@
+watch_paths:
+- ./home/anindya-paul/projects
+file_type: ['.py', '.js', '.ts', '.java', '.cpp']
