@@ -1,11 +1,10 @@
-import sys
 import time
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import os
 from core.context_manager import analyze_file_event
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 class FileChangeHandler(FileSystemEventHandler):
     def __init__(self, file_types):
