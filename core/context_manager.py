@@ -1,9 +1,11 @@
+import sys
 import os
 import json
 import ast
 from sentence_transformers  import SentenceTransformer
 from utils.helpers import detect_language, extract_python_metadata, load_json, save_json
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 METADATA_PATH = "core/code_metadata.json"
 

@@ -1,11 +1,16 @@
+import sys
+import os
 import json
 import re
 from utils.helpers import load_json, save_json
 from agents.retriever_agent import retreive_concept_explanation
 
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DOC_MAP_PATH = "docs/keyword_to_docs.json"
 METADATA_PATH = "core/code_metadata.json"
 SUGGESTED_FIELD = "suggested_docs"
+
+
 
 def suggest_docs():
     doc_map = load_json(DOC_MAP_PATH)
