@@ -4,7 +4,7 @@ import ast
 from sentence_transformers  import SentenceTransformer
 from utils.helpers import detect_language, extract_python_metadata, load_json, save_json
 
-model = SentenceTransformer("all-MiniLM-L6_v2")
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
 METADATA_PATH = "core/code_metadata.json"
 
 def analyze_file_event(file_path):
