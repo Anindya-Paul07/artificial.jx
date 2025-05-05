@@ -6,10 +6,10 @@ import requests
 
 CACHE_PATH = "core/knowledge_base/cache.json"
 
-def retreive_concept_explanation(term):
+def retrieve_concept_explanation(term):
     cache = load_json(CACHE_PATH)
     if term in cache:
-        print(f"[Junior] Retreived '{term}' from local KB. ")
+        print(f"[Junior] Retrieved '{term}' from local KB. ")
         return cache[term]
     
     explanation = search_online(term)
