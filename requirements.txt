@@ -10,3 +10,4 @@ python-dotenv
 duckduckgo-search
 tqdm
 fastapi
+pylint
