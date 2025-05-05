@@ -12,5 +12,5 @@ def get_status():
 
 @router.post("/analyze")
 def trigger_analysis():
-    #logic will be added for UI-triggred scans
+    from core.doc_suggester import analyze_
     return{"message":"Manual analysis triggered (to be implemented)."}

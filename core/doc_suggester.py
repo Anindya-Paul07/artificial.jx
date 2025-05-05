@@ -2,17 +2,18 @@ import os
 import json
 import re
 from utils.helpers import load_json, save_json
-from agents.retriever_agent import retreive_concept_explanation
+from agents.retriever_agent import retrieve_concept_explanation
 
-DOC_MAP_PATH = "docs/keyword_to_docs.json"
+DOC_MAP_PATH = "docs/keywords_to_docs.json"
 METADATA_PATH = "core/code_metadata.json"
 SUGGESTED_FIELD = "suggested_docs"
+
 os.makedirs(os.path.dirname(METADATA_PATH), exist_ok=True)
-all_meta = []
-save_json(METADATA_PATH, all_meta)
+
 
 def suggest_docs():
     doc_map = load_json(DOC_MAP_PATH)
+    all_meta = load_json(METADATA_PATH)
 
     for file_path, meta in all_meta.items():
         summary = meta.get("summary", "")
@@ -30,7 +31,7 @@ def suggest_docs():
                 "url": doc_map[keyword]
             })
         else:
-            explanation = retreive_concept_explanation(keyword)
+            explanation = retrieve_concept_explanation(keyword)
             if explanation:
                 found_docs.append({
                     "keyword":keyword,
@@ -39,6 +40,7 @@ def suggest_docs():
                 })
 
     meta[SUGGESTED_FIELD] = found_docs
+    all_meta[file_path] = meta
 
 save_json(METADATA_PATH, all_meta)
 print("[Junior] Smart documentation suggestion complete.")
