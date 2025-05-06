@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: next-app/package-lock.json
+
+    - name: Install dependencies
+      run: npm ci
+      working-directory: next-app
+
+    - name: Build
+      run: npm run build
+      working-directory: next-app
+
+    - name: Run Tests
+      run: npm run test
+      working-directory: next-app
+
+    - name: Lint
+      run: npm run lint
+      working-directory: next-app
+
+  python:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Python tests
+      run: python -m pytest

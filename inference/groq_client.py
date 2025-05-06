@@ -10,7 +10,7 @@ llm = ChatOpenAI(
     base_url="https://api.groq.com/openai/v1",
     model_name="llama3-70b-8192",
     api_key=os.getenv("OPENAI_API_KEY"),
-    temperature=0.3,
+    temperature=0.5,
     max_completion_tokens= 1024
 )
 
