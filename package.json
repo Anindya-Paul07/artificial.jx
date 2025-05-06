@@ -1,0 +1,21 @@
+{
+  "name": "junior-backend",
+  "version": "1.0.0",
+  "description": "Junior AI Learning Assistant Backend",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "fastify": "^4.29.1",
+    "openai": "^4.97.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.41",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3"
+  }
+}
